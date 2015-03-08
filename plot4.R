@@ -19,13 +19,12 @@ Sys.setlocale("LC_TIME", "en_US.UTF-8")
 t<-paste(table$Date,table$Time,sep=",")
 datetime<-strptime(t,"%d/%m/%Y,%H:%M:%S")
 
-
 ##Making plot4
 png(file="plot4.png")
 par(mfcol=c(2,2))
 
 ##top left graph
-plot(datetime,table$Global_active_power,type="n", xlab="", ylab="Global Active Power (kilowatts)")
+plot(datetime,table$Global_active_power,type="n", xlab="", ylab="Global Active Power")
 lines(datetime,table$Global_active_power)
 
 ##bottom left graph
@@ -35,7 +34,7 @@ points(datetime,table$Sub_metering_2,pch=".",col="red")
 lines(datetime,table$Sub_metering_2,col="red")
 points(datetime,table$Sub_metering_3,pch=".",col="blue")
 lines(datetime,table$Sub_metering_3,col="blue")
-legend("topright", pch="_", border="white",col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+legend("topright", lty="solid", bty="n",col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 ##top right graph
 plot(datetime,table$Voltage,type="n", ylab="Voltage")
