@@ -16,7 +16,7 @@ names(table)<-header
 Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
 ##Paste Date and Time Columns and make it as Date/Time class vector
-t<-paste(table$Date,rawtable$Time,sep=",")
+t<-paste(table$Date,table$Time,sep=",")
 datetime<-strptime(t,"%d/%m/%Y,%H:%M:%S")
 
 

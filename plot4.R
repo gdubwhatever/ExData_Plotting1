@@ -16,7 +16,7 @@ names(table)<-header
 Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
 ##Paste Date and Time Columns and make it as Date/Time class vector
-t<-paste(table$Date,rawtable$Time,sep=",")
+t<-paste(table$Date,table$Time,sep=",")
 datetime<-strptime(t,"%d/%m/%Y,%H:%M:%S")
 
 
@@ -38,11 +38,11 @@ lines(datetime,table$Sub_metering_3,col="blue")
 legend("topright", pch="_", border="white",col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 ##top right graph
-plot(datetime,table$Voltage,type="n", xlab="datetime", ylab="Voltage")
+plot(datetime,table$Voltage,type="n", ylab="Voltage")
 lines(datetime,table$Voltage)
 
 ##bottom right graph
-plot(datetime,table$Global_reactive_power,type="n", xlab="datetime", ylab="Global_reactive_power")
+plot(datetime,table$Global_reactive_power,type="n", ylab="Global_reactive_power")
 lines(datetime,table$Global_reactive_power)
 
 dev.off()
